@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+import rospy
+import sys
+from libezgripper import create_connection, Gripper
+from std_srvs.srv import SetBool
+from std_srvs.srv import SetBoolRequest
+from std_srvs.srv import SetBoolResponse
+
+from gripper_control.srv import grip
+from gripper_control.srv import gripResponse
+
+connection = create_connection(dev_name='/dev/ttyUSB0', baudrate= 57600)
+gripper = Gripper(connection, 'gripper1', [1])
+
+def control_gripper(req):
+    if req.decision == 0:
+        gripper.goto_position(0, 50)
+    elif req.decision == 1:
+        gripper.goto_position(50, 50)
+    elif req.decision == 2:
+        gripper.calibrate()
+
+    print("\n")
+    return gripResponse(True)
+
+def gripper_server():
+    rospy.init_node('ezgripper_control')
+    s = rospy.Service('gripper', grip, control_gripper)
+    print ("Gripper is operational")
+    rospy.spin()
+    
+if __name__ == "__main__":
+    gripper.calibrate()
+    gripper_server()
+
