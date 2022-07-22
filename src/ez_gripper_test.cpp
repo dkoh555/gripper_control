@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     }
     else // If unable to connect to both services, return an error message
     {
-        ROS_ERROR("Failed to call service SetBool");
+        ROS_ERROR("Failed to call service grip to gripper");
         return 1;
     }
 
