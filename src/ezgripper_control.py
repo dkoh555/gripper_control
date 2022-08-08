@@ -17,7 +17,7 @@ def control_gripper(req):
     if req.decision == 0:
         gripper.goto_position(0, 50)
     elif req.decision == 1:
-        gripper.goto_position(50, 50)
+        gripper.goto_position(75, 50)
     elif req.decision == 2:
         gripper.calibrate()
 
