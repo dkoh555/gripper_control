@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
+# This program allows simplified control of the ez_gripper, with commands to open, close, and calibrate.
 
 import rospy
 import sys
@@ -8,7 +7,7 @@ from libezgripper import create_connection, Gripper
 from gripper_control.srv import grip
 from gripper_control.srv import gripResponse
 
-#connection = create_connection(dev_name='/dev/ttyUSB0', baudrate= 57600)
+# Allows the Xavier to connect to the physical gripper (you might need to change this if you make changes to hardware)
 connection = create_connection(dev_name='hwgrep://0403:6015', baudrate=57600)
 
 gripper = Gripper(connection, 'gripper1', [1])

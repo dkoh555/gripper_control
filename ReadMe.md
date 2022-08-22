@@ -1,5 +1,5 @@
 # 1. Introduction
-This package works with the EZgripper by SAKE Robotics (https://sakerobotics.com/support/) and is to be used in conjuction with the arm_control repo
+This package works with the EZgripper by SAKE Robotics (https://sakerobotics.com/support/) and is to be used in conjuction with the arm_control repo.
 
 # 2. Installation
 Follow the installation instructions for the EZgripper Python drivers and libraries (https://github.com/SAKErobotics/libezgripper/tree/ubuntu-20.04), make sure to select the branch ubuntu-20.04 because it is not the default one.
@@ -12,3 +12,6 @@ This error may look like:
     [Errno 13] Permission denied: '/dev/ttyUSB0'
 
 In that case, follow the instruction in this link (https://sudomod.com/forum/viewtopic.php?t=6075) and it should work as intended.
+The only issue with this fix is that it is temporary, every time you turn the Xavier on you will need to run this.
+
+So if one of you genuises can find a more permanent fix, pls put it here thx :)
